@@ -16,7 +16,7 @@ export default class RedirectRoot extends Component {
 	componentWillReceiveProps(nextProps) {
 		const { user } = nextProps;
 		if (!user && window) {
-			window.location.href = "/login";
+			window.location.href = "/login?url=" + window.location.href;
 		}
 	}
 

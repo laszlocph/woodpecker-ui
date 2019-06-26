@@ -93,7 +93,11 @@ export default class Default extends Component {
 				</div>
 				<div className={styles.center}>
 					{!user || !user.data ? (
-						<a href="/login" target="_self" className={styles.login}>
+						<a
+							href={"/login?url=" + window.location.href}
+							target="_self"
+							className={styles.login}
+						>
 							Click to Login
 						</a>
 					) : (
