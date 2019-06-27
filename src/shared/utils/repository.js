@@ -1,4 +1,5 @@
 import { displayMessage } from "./message";
+import { fetchFeed } from "shared/utils/feed";
 
 /**
  * Get the named repository and store the results in
@@ -132,6 +133,7 @@ export const enableRepository = (tree, client, owner, name) => {
 		.then(result => {
 			displayMessage(tree, "Successfully activated your repository");
 			tree.set(["repos", "data", result.full_name, "active"], true);
+			fetchFeed(tree, client);
 		})
 		.catch(() => {
 			displayMessage(tree, "Failed to activate your repository");
@@ -153,6 +155,7 @@ export const disableRepository = (tree, client, owner, name) => {
 		.then(result => {
 			displayMessage(tree, "Successfully disabled your repository");
 			tree.set(["repos", "data", result.full_name, "active"], false);
+			fetchFeed(tree, client);
 		})
 		.catch(() => {
 			displayMessage(tree, "Failed to disabled your repository");
