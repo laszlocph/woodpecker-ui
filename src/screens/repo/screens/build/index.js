@@ -96,10 +96,7 @@ export default class BuildLogs extends Component {
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		return (
-			this.props !== nextProps &&
-			nextProps.build.procs[0].children !== undefined
-		);
+		return this.props !== nextProps;
 	}
 
 	render() {
@@ -176,6 +173,10 @@ export default class BuildLogs extends Component {
 	}
 
 	renderSimple() {
+		// if (nextProps.build.procs[0].children !== undefined){
+		// 	return null;
+		// }
+
 		const { repo, build, match } = this.props;
 		const selectedProc = match.params.proc
 			? findChildProcess(build.procs, match.params.proc)
