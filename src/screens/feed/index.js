@@ -167,7 +167,15 @@ export default class Sidebar extends Component {
 const LOGO = (
 	<div className={style.brand}>
 		<DroneIcon />
-		<p>Woodpecker CI</p>
+		<p>
+			Woodpecker<br />
+			<span>
+				yes,
+				<a href="https://github.com/laszlocph/drone-oss-08/" target="blank">
+					it&#39;s a fork
+				</a>
+			</span>
+		</p>
 	</div>
 );
 
