@@ -33,6 +33,7 @@ class TermLine extends Component {
 			<div
 				className={highlighted === line.pos ? style.highlight : style.line}
 				key={line.pos}
+				ref={highlighted === line.pos ? ref => (this.ref = ref) : null}
 			>
 				<div>
 					<Link to={`#L${line.pos + 1}`} key={line.pos + 1}>
@@ -43,6 +44,12 @@ class TermLine extends Component {
 				<div>{line.time || 0}s</div>
 			</div>
 		);
+	}
+
+	componentDidMount() {
+		if (this.ref !== undefined) {
+			scrollToRef(this.ref);
+		}
 	}
 
 	get colored() {
@@ -76,6 +83,8 @@ const TermError = () => {
 const TermLoading = () => {
 	return <div className={style.loading}>Loading ...</div>;
 };
+
+const scrollToRef = ref => window.scrollTo(0, ref.offsetTop - 100);
 
 Term.Line = TermLine;
 Term.Error = TermError;
