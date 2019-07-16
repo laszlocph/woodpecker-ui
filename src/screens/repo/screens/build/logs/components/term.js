@@ -30,8 +30,15 @@ class TermLine extends Component {
 	render() {
 		const { line, highlighted } = this.props;
 		return (
-			<div className={highlighted == line.pos ? style.highlight : style.line} key={line.pos}>
-				<div><Link to={`#L${line.pos + 1}`} key={line.pos + 1}>{line.pos + 1}</Link></div>
+			<div
+				className={highlighted === line.pos ? style.highlight : style.line}
+				key={line.pos}
+			>
+				<div>
+					<Link to={`#L${line.pos + 1}`} key={line.pos + 1}>
+						{line.pos + 1}
+					</Link>
+				</div>
 				<div dangerouslySetInnerHTML={{ __html: this.colored }} />
 				<div>{line.time || 0}s</div>
 			</div>

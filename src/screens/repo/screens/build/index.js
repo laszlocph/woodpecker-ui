@@ -174,7 +174,7 @@ export default class BuildLogs extends Component {
 
 	highlightedLine() {
 		if (location.hash.startsWith("#L")) {
-			return parseInt(location.hash.substr(2))-1;
+			return parseInt(location.hash.substr(2)) - 1;
 		}
 
 		return undefined;
