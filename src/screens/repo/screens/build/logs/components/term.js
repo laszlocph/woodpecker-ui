@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AnsiUp from "ansi_up";
 import style from "./term.less";
+import { Link } from "react-router-dom";
 
 let formatter = new AnsiUp();
 formatter.use_classes = true;
@@ -19,7 +20,8 @@ class Term extends Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		return (
 			this.props.lines !== nextProps.lines ||
-			this.props.exitcode !== nextProps.exitcode
+			this.props.exitcode !== nextProps.exitcode ||
+			this.props.highlighted !== nextProps.highlighted
 		);
 	}
 }
@@ -29,7 +31,7 @@ class TermLine extends Component {
 		const { line, highlighted } = this.props;
 		return (
 			<div className={highlighted == line.pos ? style.highlight : style.line} key={line.pos}>
-				<div>{line.pos + 1}</div>
+				<div><Link to={`#L${line.pos + 1}`} key={line.pos + 1}>{line.pos + 1}</Link></div>
 				<div dangerouslySetInnerHTML={{ __html: this.colored }} />
 				<div>{line.time || 0}s</div>
 			</div>
@@ -41,7 +43,10 @@ class TermLine extends Component {
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {
-		return this.props.line.out !== nextProps.line.out;
+		return (
+			this.props.line.out !== nextProps.line.out ||
+			this.props.highlighted !== nextProps.highlighted
+		);
 	}
 }
 
