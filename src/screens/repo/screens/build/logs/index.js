@@ -84,7 +84,7 @@ export default class Output extends Component {
 	}
 
 	render() {
-		const { logs, error, proc, loading, follow } = this.props;
+		const { logs, error, proc, loading, follow, highlighted } = this.props;
 
 		if (loading || !proc) {
 			return <Term.Loading />;
@@ -99,6 +99,7 @@ export default class Output extends Component {
 				<Top />
 				<Term
 					lines={logs || []}
+					highlighted={highlighted}
 					exitcode={assertProcFinished(proc) ? proc.exit_code : undefined}
 				/>
 				<Bottom />
