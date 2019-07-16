@@ -172,6 +172,14 @@ export default class BuildLogs extends Component {
 		);
 	}
 
+	highlightedLine() {
+		if (location.hash.startsWith("#L")) {
+			return parseInt(location.hash.substr(2))-1;
+		}
+
+		return undefined;
+	}
+
 	renderSimple() {
 		// if (nextProps.build.procs[0].children !== undefined){
 		// 	return null;
@@ -182,6 +190,7 @@ export default class BuildLogs extends Component {
 			? findChildProcess(build.procs, match.params.proc)
 			: build.procs[0].children[0];
 		const selectedProcParent = findChildProcess(build.procs, selectedProc.ppid);
+		const highlighted = this.highlightedLine();
 
 		return (
 			<div className={styles.host}>
@@ -216,6 +225,7 @@ export default class BuildLogs extends Component {
 							match={this.props.match}
 							build={this.props.build}
 							proc={selectedProc}
+							highlighted={highlighted}
 						/>
 					</div>
 				</div>

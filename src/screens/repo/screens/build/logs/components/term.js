@@ -7,10 +7,10 @@ formatter.use_classes = true;
 
 class Term extends Component {
 	render() {
-		const { lines, exitcode } = this.props;
+		const { lines, exitcode, highlighted } = this.props;
 		return (
 			<div className={style.term}>
-				{lines.map(renderTermLine)}
+				{lines.map(line => renderTermLine(line, highlighted))}
 				{exitcode !== undefined ? renderExitCode(exitcode) : undefined}
 			</div>
 		);
@@ -26,9 +26,9 @@ class Term extends Component {
 
 class TermLine extends Component {
 	render() {
-		const { line } = this.props;
+		const { line, highlighted } = this.props;
 		return (
-			<div className={style.line} key={line.pos}>
+			<div className={highlighted == line.pos ? style.highlight : style.line} key={line.pos}>
 				<div>{line.pos + 1}</div>
 				<div dangerouslySetInnerHTML={{ __html: this.colored }} />
 				<div>{line.time || 0}s</div>
@@ -45,8 +45,8 @@ class TermLine extends Component {
 	}
 }
 
-const renderTermLine = line => {
-	return <TermLine line={line} />;
+const renderTermLine = (line, highlighted) => {
+	return <TermLine line={line} highlighted={highlighted} />;
 };
 
 const renderExitCode = code => {
