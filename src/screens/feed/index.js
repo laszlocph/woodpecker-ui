@@ -171,7 +171,11 @@ const LOGO = (
 			Woodpecker<br />
 			<span>
 				yes,&nbsp;
-				<a href="https://github.com/laszlocph/drone-oss-08/" target="_blank">
+				<a
+					href="https://github.com/laszlocph/drone-oss-08/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					it&#39;s a fork
 				</a>
 			</span>
