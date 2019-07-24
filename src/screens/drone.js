@@ -4,7 +4,7 @@ import { root } from "baobab-react/higher-order";
 import tree from "config/state";
 import client from "config/client";
 import { drone } from "config/client/inject";
-import { LoginError } from "screens/login/screens";
+import { LoginForm, LoginError } from "screens/login/screens";
 import Title from "./titles";
 import Layout from "./layout";
 import RedirectRoot from "./redirect";
@@ -27,6 +27,7 @@ class App extends Component {
 					<Title />
 					<Switch>
 						<Route path="/" exact={true} component={RedirectRoot} />
+						<Route path="/login/form" exact={true} component={LoginForm} />
 						<Route path="/login/error" exact={true} component={LoginError} />
 						<Route path="/" exact={false} component={Layout} />
 					</Switch>
