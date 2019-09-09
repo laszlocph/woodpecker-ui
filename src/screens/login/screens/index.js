@@ -1,3 +1,4 @@
+import LoginForm from "./form";
 import LoginError from "./error";
 
-export { LoginError };
+export { LoginForm, LoginError };
