@@ -141,7 +141,7 @@ var files = map[string]file{
 		FileInfo: &fileInfo{
 			name:    "vendor.26dc460652ec0dec3e38.js",
 			size:    272277,
-			modTime: time.Unix(1563971419, 0),
+			modTime: time.Unix(1568016292, 0),
 		},
 	},
 	"/static/bundle.2fbf04cbe6d89cbe017f.js": {
@@ -149,7 +149,7 @@ var files = map[string]file{
 		FileInfo: &fileInfo{
 			name:    "bundle.2fbf04cbe6d89cbe017f.js",
 			size:    374464,
-			modTime: time.Unix(1563971419, 0),
+			modTime: time.Unix(1568016292, 0),
 		},
 	},
 	"/favicon.png": {
@@ -157,7 +157,7 @@ var files = map[string]file{
 		FileInfo: &fileInfo{
 			name:    "favicon.png",
 			size:    1374,
-			modTime: time.Unix(1563971419, 0),
+			modTime: time.Unix(1568016292, 0),
 		},
 	},
 	"/index.html": {
@@ -165,7 +165,7 @@ var files = map[string]file{
 		FileInfo: &fileInfo{
 			name:    "index.html",
 			size:    388,
-			modTime: time.Unix(1563971419, 0),
+			modTime: time.Unix(1568016292, 0),
 		},
 	},
 }
